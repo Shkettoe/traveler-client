@@ -779,7 +779,7 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerProfile(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async authControllerProfile(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerProfile(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthApi.authControllerProfile']?.[localVarOperationServerIndex]?.url;
@@ -821,7 +821,7 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerProfile(options?: RawAxiosRequestConfig): AxiosPromise<object> {
+        authControllerProfile(options?: RawAxiosRequestConfig): AxiosPromise<User> {
             return localVarFp.authControllerProfile(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1355,11 +1355,11 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerFindOne: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        tripsControllerFindOne: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('tripsControllerFindOne', 'id', id)
             const localVarPath = `/trips/{id}`
@@ -1392,11 +1392,11 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerRemove: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        tripsControllerRemove: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('tripsControllerRemove', 'id', id)
             const localVarPath = `/trips/{id}`
@@ -1429,12 +1429,12 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {UpdateTripDto} updateTripDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerUpdate: async (id: string, updateTripDto: UpdateTripDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        tripsControllerUpdate: async (id: number, updateTripDto: UpdateTripDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('tripsControllerUpdate', 'id', id)
             // verify required parameter 'updateTripDto' is not null or undefined
@@ -1586,11 +1586,11 @@ export const TripsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tripsControllerFindOne(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Trip>> {
+        async tripsControllerFindOne(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Trip>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tripsControllerFindOne(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TripsApi.tripsControllerFindOne']?.[localVarOperationServerIndex]?.url;
@@ -1598,11 +1598,11 @@ export const TripsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tripsControllerRemove(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async tripsControllerRemove(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tripsControllerRemove(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TripsApi.tripsControllerRemove']?.[localVarOperationServerIndex]?.url;
@@ -1610,12 +1610,12 @@ export const TripsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {UpdateTripDto} updateTripDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tripsControllerUpdate(id: string, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Trip>> {
+        async tripsControllerUpdate(id: number, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Trip>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tripsControllerUpdate(id, updateTripDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TripsApi.tripsControllerUpdate']?.[localVarOperationServerIndex]?.url;
@@ -1692,30 +1692,30 @@ export const TripsApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerFindOne(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Trip> {
+        tripsControllerFindOne(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Trip> {
             return localVarFp.tripsControllerFindOne(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerRemove(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        tripsControllerRemove(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.tripsControllerRemove(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {UpdateTripDto} updateTripDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerUpdate(id: string, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig): AxiosPromise<Trip> {
+        tripsControllerUpdate(id: number, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig): AxiosPromise<Trip> {
             return localVarFp.tripsControllerUpdate(id, updateTripDto, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1794,35 +1794,35 @@ export class TripsApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TripsApi
      */
-    public tripsControllerFindOne(id: string, options?: RawAxiosRequestConfig) {
+    public tripsControllerFindOne(id: number, options?: RawAxiosRequestConfig) {
         return TripsApiFp(this.configuration).tripsControllerFindOne(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TripsApi
      */
-    public tripsControllerRemove(id: string, options?: RawAxiosRequestConfig) {
+    public tripsControllerRemove(id: number, options?: RawAxiosRequestConfig) {
         return TripsApiFp(this.configuration).tripsControllerRemove(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {UpdateTripDto} updateTripDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TripsApi
      */
-    public tripsControllerUpdate(id: string, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig) {
+    public tripsControllerUpdate(id: number, updateTripDto: UpdateTripDto, options?: RawAxiosRequestConfig) {
         return TripsApiFp(this.configuration).tripsControllerUpdate(id, updateTripDto, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1981,11 +1981,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerFindOne: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersControllerFindOne: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersControllerFindOne', 'id', id)
             const localVarPath = `/users/{id}`
@@ -2018,11 +2018,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerRemove: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersControllerRemove: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersControllerRemove', 'id', id)
             const localVarPath = `/users/{id}`
@@ -2055,12 +2055,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerUpdate: async (id: string, body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersControllerUpdate: async (id: number, body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersControllerUpdate', 'id', id)
             // verify required parameter 'body' is not null or undefined
@@ -2139,11 +2139,11 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerFindOne(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async usersControllerFindOne(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerFindOne(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersApi.usersControllerFindOne']?.[localVarOperationServerIndex]?.url;
@@ -2151,11 +2151,11 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerRemove(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async usersControllerRemove(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerRemove(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersApi.usersControllerRemove']?.[localVarOperationServerIndex]?.url;
@@ -2163,12 +2163,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async usersControllerUpdate(id: number, body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersControllerUpdate(id, body, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersApi.usersControllerUpdate']?.[localVarOperationServerIndex]?.url;
@@ -2211,30 +2211,30 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerFindOne(id: string, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+        usersControllerFindOne(id: number, options?: RawAxiosRequestConfig): AxiosPromise<User> {
             return localVarFp.usersControllerFindOne(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerRemove(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        usersControllerRemove(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.usersControllerRemove(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {number} id 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        usersControllerUpdate(id: number, body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.usersControllerUpdate(id, body, options).then((request) => request(axios, basePath));
         },
     };
@@ -2278,35 +2278,35 @@ export class UsersApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersControllerFindOne(id: string, options?: RawAxiosRequestConfig) {
+    public usersControllerFindOne(id: number, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersControllerFindOne(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersControllerRemove(id: string, options?: RawAxiosRequestConfig) {
+    public usersControllerRemove(id: number, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersControllerRemove(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} id 
+     * @param {number} id 
      * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig) {
+    public usersControllerUpdate(id: number, body: object, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersControllerUpdate(id, body, options).then((request) => request(this.axios, this.basePath));
     }
 }
