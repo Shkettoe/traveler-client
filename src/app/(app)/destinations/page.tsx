@@ -2,6 +2,8 @@ import React from "react";
 import { getDestinations } from "./actions";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 const Destinations = async () => {
   const destinations = await getDestinations();
 
