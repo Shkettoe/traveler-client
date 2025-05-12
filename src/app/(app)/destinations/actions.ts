@@ -1,9 +1,11 @@
 "use server";
+import { getToken } from "@/lib/actions";
 import { destinationsApi } from "@/lib/api";
 import { Destination } from "@/types/api";
 import { redirect } from "next/navigation";
 
 export const getDestinations = async () => {
+  await getToken();
   const { data } = (await destinationsApi.destinationsControllerFindAll()) as {
     data: Destination[];
   };
