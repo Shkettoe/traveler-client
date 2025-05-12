@@ -1279,6 +1279,7 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @param {TripsControllerFindAllOrderByEnum} [orderBy] 
+         * @param {number} [user] 
          * @param {number} [page] 
          * @param {number} [limit] 
          * @param {TripsControllerFindAllOrderEnum} [order] 
@@ -1289,7 +1290,7 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerFindAll: async (orderBy?: TripsControllerFindAllOrderByEnum, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        tripsControllerFindAll: async (orderBy?: TripsControllerFindAllOrderByEnum, user?: number, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/trips`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1308,6 +1309,10 @@ export const TripsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['orderBy'] = orderBy;
+            }
+
+            if (user !== undefined) {
+                localVarQueryParameter['user'] = user;
             }
 
             if (page !== undefined) {
@@ -1568,6 +1573,7 @@ export const TripsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {TripsControllerFindAllOrderByEnum} [orderBy] 
+         * @param {number} [user] 
          * @param {number} [page] 
          * @param {number} [limit] 
          * @param {TripsControllerFindAllOrderEnum} [order] 
@@ -1578,8 +1584,8 @@ export const TripsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Trip>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.tripsControllerFindAll(orderBy, page, limit, order, relations, title, startDate, endDate, options);
+        async tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, user?: number, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Trip>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.tripsControllerFindAll(orderBy, user, page, limit, order, relations, title, startDate, endDate, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TripsApi.tripsControllerFindAll']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1677,6 +1683,7 @@ export const TripsApiFactory = function (configuration?: Configuration, basePath
         /**
          * 
          * @param {TripsControllerFindAllOrderByEnum} [orderBy] 
+         * @param {number} [user] 
          * @param {number} [page] 
          * @param {number} [limit] 
          * @param {TripsControllerFindAllOrderEnum} [order] 
@@ -1687,8 +1694,8 @@ export const TripsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Trip>> {
-            return localVarFp.tripsControllerFindAll(orderBy, page, limit, order, relations, title, startDate, endDate, options).then((request) => request(axios, basePath));
+        tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, user?: number, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Trip>> {
+            return localVarFp.tripsControllerFindAll(orderBy, user, page, limit, order, relations, title, startDate, endDate, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1777,6 +1784,7 @@ export class TripsApi extends BaseAPI {
     /**
      * 
      * @param {TripsControllerFindAllOrderByEnum} [orderBy] 
+     * @param {number} [user] 
      * @param {number} [page] 
      * @param {number} [limit] 
      * @param {TripsControllerFindAllOrderEnum} [order] 
@@ -1788,8 +1796,8 @@ export class TripsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TripsApi
      */
-    public tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig) {
-        return TripsApiFp(this.configuration).tripsControllerFindAll(orderBy, page, limit, order, relations, title, startDate, endDate, options).then((request) => request(this.axios, this.basePath));
+    public tripsControllerFindAll(orderBy?: TripsControllerFindAllOrderByEnum, user?: number, page?: number, limit?: number, order?: TripsControllerFindAllOrderEnum, relations?: Array<string>, title?: string, startDate?: string, endDate?: string, options?: RawAxiosRequestConfig) {
+        return TripsApiFp(this.configuration).tripsControllerFindAll(orderBy, user, page, limit, order, relations, title, startDate, endDate, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
