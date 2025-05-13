@@ -5,6 +5,7 @@ import { Destination } from "@/types/api";
 import { redirect } from "next/navigation";
 
 export const getDestinations = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   await getToken();
   const { data } = (await destinationsApi.destinationsControllerFindAll()) as {
     data: Destination[];

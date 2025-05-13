@@ -5,12 +5,13 @@ import { ArrowLeft } from "lucide-react";
 import PopUp from "@/components/PopUp";
 import { dateToHuman } from "@/lib/utils";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 const Trip = async ({ params }: { params: Promise<{ id: number }> }) => {
   const { id } = await params;
   const trip = await getTrip(id);
 
-  if ("error" in trip) return <div>Couldn&apos;t get a trip</div>;
+  if ("error" in trip) notFound();
 
   return (
     <div className="flex flex-col gap-4 w-full">
